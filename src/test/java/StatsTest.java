@@ -1,12 +1,14 @@
+import org.junit.Test;
 import pitstop.Pitstop;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    public static void main(String[] args) {
+import static org.junit.Assert.assertEquals;
 
-
+public class StatsTest {
+    @Test
+    public void testCountPitstops(){
         List<Pitstop> pitstops = new ArrayList<>();
         Pitstop testPitstop = new Pitstop(
                 9515,
@@ -18,7 +20,11 @@ public class Main {
 
         pitstops.add(testPitstop);
 
+        Stats stats = new Stats();
 
-        testPitstop.toString();
+        int count = stats.countPitstops(pitstops);
+
+        assertEquals(1, count);
+
     }
 }
